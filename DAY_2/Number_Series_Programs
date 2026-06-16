@@ -212,3 +212,47 @@ class Solution {
         
     }
 }
+
+11.perfect Square
+
+class Solution {
+    public boolean isPerfectSquare(int n)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            if(i*i==n)
+            {
+                return true;
+            }
+        }
+        return false;
+        
+    }
+}
+
+12.Neon Number
+
+class Main
+{
+    public static void main(String args[])
+    {
+        int n=9;
+        int s=n*n;
+        int sum=0;
+        while(s>0)
+        {
+            int d=s%10;
+            sum+=d;
+            n/=10;
+            
+        }
+        if(n==sum)
+        {
+            System.out.println("neon number");
+        }
+        else
+        {
+            System.out.println("no");
+        }
+    }
+}
