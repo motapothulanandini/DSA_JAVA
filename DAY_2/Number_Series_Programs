@@ -120,5 +120,47 @@ class Main
     }
 
 
-6.Happy Number
+6.Nelson Number
 
+class Main
+{
+    public static void main(String args[])
+    {
+        int n=1221;
+        if(n%111==0&&n<=999)
+        {
+            System.out.println("nelson number");
+        }
+        else
+        {
+            System.out.println("no");
+        }
+    }
+}
+
+7.Perfect Number
+
+class Solution {
+    static boolean isPerfect(int n) 
+    {
+        
+
+        int sum = 1; // 1 is always a divisor
+
+        for (int i = 2; i * i <= n; i++) {
+
+            if (n % i == 0) {
+                sum += i;
+
+                if (i != n / i) {
+                    sum += n / i;
+                }
+            }
+        }
+
+        return sum == n && n != 1;
+    }
+}
+        
+        
+    
