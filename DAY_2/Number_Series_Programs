@@ -37,3 +37,54 @@ class Main
        System.out.println(fact);
     }
 }
+
+3.SPy Number
+123=>(1+2+3)=(1*2*3) ->spy number
+class Solution {
+    public boolean checkSpy(int n)
+    {
+        int s=0;
+        int m=1;
+        int p=n;
+        while(p>0)
+        {
+            int d=p%10;
+            s+=d;
+            m*=d;
+            p/=10;
+        }
+       
+        if(s==m)
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
+4. Automorphic Number
+class Solution {
+    public String isAutomorphic(int n)
+    {
+        int s=n*n;
+        int tempn=n;
+        int temps=s;
+        boolean a= true;
+        while(tempn>0)
+        {
+            if(tempn%10!=temps%10)
+            {
+               a=false;
+                break;
+            }
+            tempn/=10;
+            temps/=10;
+        }
+        if(a)
+        {
+            return "Automorphic";
+        }
+        return "Not Automorphic";
+        
+    }
+}
