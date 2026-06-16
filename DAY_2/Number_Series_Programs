@@ -88,3 +88,33 @@ class Solution {
         
     }
 }
+
+5.Magic number
+
+class Main
+{
+    public static void main(String args[])
+    {
+        int n=19;
+        while(n>9)
+        {
+            int s=0;
+            while(n>0)
+            {
+                int d=n%10;
+                s+=d;
+                n/=10;
+            }
+            n=s;
+        }
+       
+         if(n==1)
+         {
+             System.out.println("magic number");
+         }
+         else
+         {
+             System.out.println("not a magic number");
+         }
+      }
+    }
