@@ -163,4 +163,34 @@ class Solution {
 }
         
         
-    
+8.Swap of two numbers
+class Solution {
+    public void swap(int a, int b)
+    {
+       a=a+b;
+       b=a-b;
+       a=a-b;
+        
+     System.out.println(a+" "+b+" ");
+    }
+}
+
+9.reverse of a number
+
+// User function Template for Java
+
+class Solution
+{
+    public int reverseDigits(int n) 
+    {
+        int r=0;
+        while(n>0)
+        {
+            int d=n%10;
+            r=r*10+d;
+            n/=10;
+        }
+        return r;
+        
+    }
+}
