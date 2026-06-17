@@ -123,3 +123,289 @@ class Main
   *****
    ***
     *
+
+5.Hallow Pattern
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=4;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n;j++)
+            {
+                if(i==1||j==1||i==n||j==n)
+                {
+                    System.out.print("*");
+                }
+                else
+                {
+                    System.out.print(" ");
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+}
+# output :
+****
+*  *
+*  *
+****
+
+6.Right Hallow
+
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=4;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=i;j++)
+            {
+                if(i==n||j==1||j==i)
+                {
+                    System.out.print( "*");
+                }
+                else
+                {
+                    System.out.print(" ");
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+}
+#output :
+*
+**
+* *
+****
+
+7.Number Hallow
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=4;
+        int num=1;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=i;j++)
+            {
+                if(i==n||j==1||j==i)
+                {
+                    System.out.print(num+" ");
+                    num++;
+                }
+                else
+                {
+                    System.out.print(" ");
+                     num++;
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+}
+# output
+1 
+2 3 
+4  6
+7 8 9 10
+
+8.Number hallow square
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=4;
+        int num=1;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n;j++)
+            {
+                if(i==1||j==1||i==n||j==n)
+                {
+                    System.out.print(num+"");
+                    num++;
+                }
+                else
+                {
+                    System.out.print(" ");
+                      num++;
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+}
+# output:
+1234
+5  8
+9  12
+13141516
+
+
+9.Alphabets
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=4;
+        char ch='A';
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n;j++)
+            {
+                if(i==1||j==1||i==n||j==n)
+                {
+                    System.out.print(ch+"");
+                    ch++;
+                }
+                else
+                {
+                    System.out.print(" ");
+                       ch++;
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+}
+#output
+ABCD
+E  H
+I  L
+MNOP
+
+10.right Alphabet HAllow
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=4;
+        char ch='A';
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=i;j++)
+            {
+                if(i==n||j==1||j==i)
+                {
+                    System.out.print(ch+" ");
+                    ch++;
+                }
+                else
+                {
+                    System.out.print(" ");
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+}
+#output
+A 
+B C 
+D  F
+G H I J
+
+11.left triangle Pattren
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=4;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n-i;j++)
+            {
+                System.out.print(" ");
+            }
+            for(int j=1;j<=i;j++)
+            {
+               System.out.print("*");
+            }   
+            System.out.println();
+        }
+        
+    }
+}
+12.Number Squares Pattern
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=5;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n;j++)
+            {
+                System.out.print(j*j+" ");
+            }
+           
+            System.out.println();
+        }
+        
+    }
+}
+#output
+1 4 9 16 25 
+1 4 9 16 25 
+1 4 9 16 25 
+1 4 9 16 25 
+1 4 9 16 25 
+
+12.Equilateral Triangle
+import java.util.*;
+class Main
+{ 
+    
+    public static void main(String args[])
+    {
+        int n=5;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n-i;j++)
+            {
+                System.out.print(" ");
+            }
+            for(int j=1;j<=2*i-1;j++)
+            {
+           
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        
+    }
+}
+#output
+    *
+   ***
+  *****
+ *******
+*********
