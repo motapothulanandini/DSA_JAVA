@@ -21,3 +21,108 @@ public static void main(String args[])
 
     }
 }
+
+2.Buzz Number
+
+import java.util.*;
+class Main
+{
+   public static void main(String args[])
+  {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        for(int i=1;i<n;i++)
+        {
+            if(i%10==7||i%7==0)
+            {
+                System.out.print(i+" ");
+            }
+        }
+    }
+}
+
+3.Min and MAx Number 
+import java.util.*;
+class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        int max=a[0];
+        int min=a[0];
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>max)
+            {
+                max=a[i];
+            }
+            if(a[i]<min)
+            {
+                min=a[i];
+            }
+        }
+        System.out.println(max);
+        System.out.println(min);
+    }
+}
+
+4.Check binary palindrome
+
+
+ import java.util.*;
+class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String binary="";
+        while(n>0)
+        {
+            int rem=n%2;
+            binary=rem+binary;
+            n/=2;
+            
+        }
+        String str=binary;
+        String rev="";
+        for(int i=str.length()-1;i>=0;i--)
+        {
+            rev=rev+str.charAt(i);
+        }
+        if(rev.equals(str))
+        {
+            System.out.println("palindrome");
+        }
+        else
+        {
+            System.out.println("no");
+        }
+        
+    }
+}
+
+5. Check power of 2 using bit manipulation
+import java.util.*;
+
+class Main {
+    public static void main(String args[]) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        if (n > 0 && (n & (n - 1)) == 0) {
+            System.out.println("Power of 2");
+        } else {
+            System.out.println("Not Power of 2");
+        }
+    }
+}
+# output:
+power of 2 means in binary number contain only one 1 like => 1000 it is power of 2 ,1010=>it is not power of 2
