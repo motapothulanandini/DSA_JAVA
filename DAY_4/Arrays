@@ -31,3 +31,46 @@ class Solution {
         return new int[]{odd,even};
     }
 }
+
+3.Rotate Kth rotation(Right)
+class Solution {
+    public void rotateclockwise(int[] arr, int k)
+    {
+        int n=arr.length;
+        k=k%n;
+        int temp[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            int newIndex=(i+k)%n;
+            temp[newIndex]=arr[i];
+        }
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=temp[i];
+        }
+        
+    }
+}
+#output:
+Input: arr[] = [1, 2, 3, 4, 5, 6], k = 2
+Output: [5, 6, 1, 2, 3, 4]
+
+4.Rotate Array [left]
+class Solution {
+    static void rotateArr(int arr[], int d)
+    {
+        int n=arr.length;
+        d=d%n;
+        int temp[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            int newindex=(i-d+n)%n;
+            temp[newindex]=arr[i];
+        }
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=temp[i];
+        }
+        
+    }
+}
