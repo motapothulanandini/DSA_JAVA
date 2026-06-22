@@ -1,0 +1,99 @@
+leetcode_No : 34
+class Main 
+{
+   public static int check_left(int[] a, int t) 
+   {
+        int l = 0, h = a.length - 1;
+        int possible = -1;
+        while (l <= h) 
+        {
+            int m = l + (h - l) / 2;
+            if (a[m] == t) 
+            {
+                possible = m;
+                h = m - 1;   // move left
+            } 
+            else if (a[m] > t)
+            {
+                h = m - 1;
+            }
+            else 
+            {
+                l = m + 1;
+            }
+        }
+         return possible;
+    }
+
+    public static int check_right(int[] a, int t) 
+    {
+        int l = 0, h = a.length - 1;
+        int possible = -1;
+        while (l <= h)
+        {
+            int m = l + (h - l) / 2;
+            if (a[m] == t)
+            {
+                possible = m;
+                l = m + 1;   // move right
+            } 
+            else if (a[m] > t) 
+            {
+                h = m - 1;
+            } 
+            else
+            {
+                l = m + 1;
+            }
+        }
+        return possible;
+    }
+
+    public static void main(String args[])
+    {
+
+        int a[] = {5, 7, 7, 8, 8, 10};
+        int t = 8;
+
+        int left = check_left(a, t);
+        int right = check_right(a, t);
+
+        System.out.println(left + " " + right);
+    }
+}
+
+Another method :
+class Solution {
+
+    public int range(int[] a, int t, boolean flag) {
+        int l = 0, h = a.length - 1;
+        int possible = -1;
+
+        while (l <= h) {
+            int m = l + (h - l) / 2;
+
+            if (a[m] == t) {
+                possible = m;
+
+                if (flag) {
+                    h = m - 1; // find first occurrence
+                } else {
+                    l = m + 1; // find last occurrence
+                }
+            } else if (a[m] > t) {
+                h = m - 1;
+            } else {
+                l = m + 1;
+            }
+        }
+
+        return possible;
+    }
+
+    public int[] searchRange(int[] nums, int target) {
+        return new int[] {
+            range(nums, target, true),
+            range(nums, target, false)
+        };
+    }
+}
