@@ -97,3 +97,45 @@ class Solution {
         };
     }
 }
+
+leetcode_No : 69(sqrt)
+class Solution {
+    public int mySqrt(int x)
+    {
+        int l=1,h=x;
+        while(l<=h)
+        {
+            int m=l+((h-l)>>1);
+            long sq=(long)m*m;
+            if(sq==x)
+            {
+                return m;
+            }
+            else if(sq>x)
+            {
+                h=m-1;
+            }
+            else
+            {
+                l=m+1;
+            }
+        }
+        return h;
+        
+    }
+}
+
+Leetcode_No : 33
+class Solution {
+    public int search(int[] nums, int target)
+    {
+       for(int ind=0;ind<nums.length;ind++)
+       {
+        if(nums[ind]==target)
+        {
+            return ind;
+        }
+       }
+       return -1;
+    }
+}
