@@ -1,0 +1,60 @@
+# Aggressive_cows (gfg)
+
+import java.util.*;
+import java.util.Arrays;
+class Solution {
+    private static boolean can_allocate(int[] stalls,int cow_count,int boundary)
+    {
+        int c=1,last=stalls[0];
+        for(int ind=1;ind<stalls.length;ind++)
+        {
+            if((stalls[ind]-last)>=boundary)
+            {
+                c++;
+                last=stalls[ind];
+            }
+        }
+        return c>=cow_count;
+    }
+    public int aggressiveCows(int[] stalls, int k) 
+    {
+        Arrays.sort(stalls);
+        int l=1,h=stalls[stalls.length-1]-stalls[0];
+        int pos=h;
+        while(l<=h)
+        {
+            int m=l+(h-l)/2;
+            if(can_allocate(stalls,k,m))
+            {
+                pos=m;
+                l=m+1;
+            }
+            else
+            {
+                h=m-1;
+            }
+        }
+        return h;
+        
+    }
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt(); // number of stalls
+        int k = sc.nextInt(); // number of cows
+
+        int[] stalls = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            stalls[i] = sc.nextInt();
+        }
+
+        Solution obj = new Solution();
+        System.out.println(obj.aggressiveCows(stalls, k));
+
+        sc.close();
+    }
+}
+        
+    
