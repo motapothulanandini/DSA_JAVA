@@ -56,5 +56,126 @@ class Solution {
         sc.close();
     }
 }
-        
+
+2. Merge sort
+class Main
+{
+    public static int[] merge(int[] a1, int[] a2)
+    {
+        int a1_size = a1.length;
+        int a2_size = a2.length;
+
+        int[] re = new int[a1_size + a2_size];
+
+        int i = 0, j = 0, k = 0;
+
+        while(i < a1_size && j < a2_size)
+        {
+            if(a1[i] <= a2[j])
+            {
+                re[k++] = a1[i++];
+            }
+            else
+            {
+                re[k++] = a2[j++];
+            }
+        }
+
+        while(i < a1_size)
+        {
+            re[k++] = a1[i++];
+        }
+
+        while(j < a2_size)
+        {
+            re[k++] = a2[j++];
+        }
+
+        return re;
+    }
+
+    public static void main(String args[])
+    {
+        int[] m = {1, 3, 9};
+        int[] n = {1, 5, 7};
+
+        int[] sol = merge(m, n);
+
+        for(int ele : sol)
+        {
+            System.out.print(ele + " ");
+        }
+    }
+}
+
+3.Number of Inversions
+
+class Main {
+
+    private static int merge(int[] a, int low, int mid, int high) {
+        int[] temp = new int[high - low + 1];
+
+        int i = low;
+        int j = mid + 1;
+        int k = 0;
+        int count = 0;
+
+        while (i <= mid && j <= high) {
+            if (a[i] <= a[j]) {
+                temp[k++] = a[i++];
+            } else {
+                temp[k++] = a[j++];
+
+                // All remaining elements in left half form inversions
+                count += (mid - i + 1);
+            }
+        }
+
+        while (i <= mid) {
+            temp[k++] = a[i++];
+        }
+
+        while (j <= high) {
+            temp[k++] = a[j++];
+        }
+
+        // Copy back to original array
+        for (int idx = 0; idx < temp.length; idx++) {
+            a[low + idx] = temp[idx];
+        }
+
+        return count;
+    }
+
+    private static int countInversions(int[] a, int low, int high) {
+        int count = 0;
+
+        if (low < high) {
+            int mid = low + (high - low) / 2;
+
+            count += countInversions(a, low, mid);
+            count += countInversions(a, mid + 1, high);
+            count += merge(a, low, mid, high);
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int[] a = {5, 3, 2, 4, 1};
+
+        int inversions = countInversions(a, 0, a.length - 1);
+
+        System.out.println("Number of inversions = " + inversions);
+    }
+}
+
+
+
+
+
+
+
+
+
     
