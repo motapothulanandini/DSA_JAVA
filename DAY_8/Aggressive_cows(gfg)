@@ -170,7 +170,51 @@ class Main {
     }
 }
 
+Inversion code another
 
+public class Main {
+    private static int merge(int[] arr, int low, int mid, int high){
+        int size = high - low + 1;
+        int i = low, j = mid+1, k = 0,count=0;
+        int[] dummy = new int[size];
+        while(i <= mid && j<= high){
+            if(arr[i] <= arr[j]){
+                dummy[k++] = arr[i++];
+            }
+            else{
+                count += (mid-i+1);
+                dummy[k++] = arr[j++];
+            }
+        }
+        while(i <= mid)
+            dummy[k++] = arr[i++];
+
+        while( j<= high)
+            dummy[k++] = arr[j++];
+
+        // copying
+        for(int ind=0; ind< size; ind++){
+            arr[ind+low] = dummy[ind];
+        }
+        return count;
+
+    }
+    private static int Count_inversions(int[] arr, int low, int high){
+        int ans = 0;
+        if(low < high){
+            int mid = low + ((high-low)>>1);
+            ans += Count_inversions(arr, low, mid);
+            ans += Count_inversions(arr, mid+1, high);
+            ans += merge(arr, low, mid, high);
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+        int[] arr= {1,2,3,4,5};
+        int sol = Count_inversions(arr, 0, arr.length-1);
+        System.out.print(sol);
+    }
+}
 
 
 
