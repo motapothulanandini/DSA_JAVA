@@ -1,0 +1,99 @@
+1.First non-Repeating element in array
+# Method 1:
+Brute Force :
+
+#Method 2:
+Optimized :
+import java.util.*;
+class Solution {
+    public int firstNonRepeating(int[] arr) 
+    {
+      HashMap<Integer,Integer>map=new HashMap<>();
+      for(int i=0;i<arr.length;i++)
+      {
+          int n=arr[i];
+          map.put(n,map.getOrDefault(n,0)+1);
+      }
+      for(int i=0;i<arr.length;i++)
+      {
+          int n=arr[i];
+       if(map.get(n)==1)
+       {
+          return n;
+       }
+      }
+      return 0;
+    }
+}
+
+2.Left rotation by K positions
+class Solution 
+{
+    static void reverse(int[]arr,int start,int end)
+    {
+        while(start<end)
+        {
+            int t=arr[start];
+            arr[start]=arr[end];
+            arr[end]=t;
+            start++;
+            end--;
+        }
+    }
+    
+    static void rotateArr(int arr[], int d) 
+    {
+        int n=arr.length;
+        d=d%n;
+        reverse(arr,0,d-1);
+        reverse(arr,d,n-1);
+        reverse(arr,0,n-1);
+       
+        
+    }
+}
+
+2.Right rotation by K positions
+class Solution 
+{
+    static void reverse(int[] arr,int s,int e)
+    {
+        while(s<e)
+        {
+            int t=arr[s];
+            arr[s]=arr[e];
+            arr[e]=t;
+            s++;
+            e--;
+        }
+    }
+    public void rotateclockwise(int[] arr, int k ) 
+    {
+        int n=arr.length;
+        k=k%n;
+        reverse(arr,0,n-1);
+        reverse(arr,0,k-1);
+        reverse(arr,k,n-1);
+        
+    }
+}
+3.Reverse of the Array 
+class Solution {
+    public void reverseArray(int arr[])
+    {
+        int s=0,e=arr.length-1;
+        while(s<e)
+        {
+            int t=arr[s];
+            arr[s]=arr[e];
+            arr[e]=t;
+            s++;
+            e--;
+        }
+        
+    }
+}
+
+
+
+
