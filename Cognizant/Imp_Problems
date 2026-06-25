@@ -1,0 +1,48 @@
+1.Check ArmStrong Number
+class Solution {
+    static boolean armstrongNumber(int n)
+    {
+        int s=0;
+       while(n>0)
+       {
+           int d=n%10;
+           s+=d*d*d;
+           n/=10;
+       }
+        if(s==n)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+2.Given the numbers to print only armstrong numbers
+class Main
+{
+    public static void main(String args[])
+    {
+        int a[]={345,153,371,678};
+       for(int i=0;i<a.length;i++)
+       {
+           int n=a[i];
+           int p=n;
+           int s=0;
+           while(n>0)
+           {
+               int d=n%10;
+               s+=d*d*d;
+               n/=10;
+            
+           }
+       
+       if(s==p)
+       {
+           System.out.println(a[i]+" ");
+       }
+       }
+    }
+}
