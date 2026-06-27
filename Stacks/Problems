@@ -279,5 +279,66 @@ Popped: 30
 After Pop: 20 10 
 
 
+# Balenced Paranthesis 
+#Method 1
 
+class Main
+{
+    public static void main(String args[])
+    {
+        String s="((()))";
+        int open_c=0,close_c=0;
+        for(char symbol:s.toCharArray())
+        {
+            if(symbol=='(')open_c++;
+            else close_c++;
+        }
+        System.out.println(open_c);
+        System.out.println(close_c);
+        System.out.println(open_c==close_c);
+    }
+}
+# output :
+true;
 
+#Method 2
+class Main
+{
+    public static void main(String args[])
+    {
+        String s=")(())(";
+        int open_c=0;
+        for(char symbol:s.toCharArray())
+        {
+            if(symbol=='(')open_c++;
+            else open_c--;
+            if(open_c<0)break;
+        }
+        System.out.println(open_c==0);
+    }
+}
+# output:
+false
+
+# Method 3 Using Switch
+
+class Main
+{
+    public static void main(String args[])
+    {
+        String s="()()()";
+        int open_c=0;
+        for(char symbol:s.toCharArray())
+        {
+            switch(symbol)
+            {
+                case '('->open_c++;
+                default ->open_c--;
+            }
+             if(open_c<0)break;
+        }
+        System.out.println(open_c==0);
+    }
+}
+#output :
+true;
