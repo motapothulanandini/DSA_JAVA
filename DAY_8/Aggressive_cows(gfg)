@@ -216,7 +216,25 @@ public class Main {
     }
 }
 
+# Given an integer n, find the number of trailing zeros in n! (the factorial of n).
 
+import java.util.*;
+class Main
+{
+    public static void main(String args[])
+    {
+        //Scanner sc=new Scanner(System.in);
+        int num=25;
+         int deno=5;
+         int z=0;
+         while(deno<=num)
+         {
+               z+=(num/deno);
+               deno*=5;
+         }
+           System.out.println(z);
+    }
+}
 
 
 
