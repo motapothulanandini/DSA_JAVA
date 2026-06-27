@@ -1,4 +1,4 @@
-
+1 ## Stack Implementation using ARRAYS :
 
 import java.util.*;
 
@@ -112,7 +112,12 @@ public class Main {
 
 }
 
-Stacks Implement using ArrayList
+## output :
+30 20 10 
+30
+30 20 10 
+
+2 ## Stacks Implement using ArrayList
 
 import java.util.*;
 
@@ -139,6 +144,140 @@ public class Main {
 	}
 
 }
+
+## Stack implemented using ARRAYLIST:
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<Integer> stack = new ArrayList<>();
+
+        // Push operation
+        stack.add(10);
+        stack.add(20);
+        stack.add(30);
+
+        System.out.println("Stack after push: " + stack);
+
+        // Peek operation
+        System.out.println("Top element: " + stack.get(stack.size() - 1));
+
+        // Pop operation
+        System.out.println("Popped element: " + stack.remove(stack.size() - 1));
+
+        // Display stack
+        System.out.println("Stack after pop: " + stack);
+
+        // Size
+        System.out.println("Size of stack: " + stack.size());
+
+        // isEmpty
+        System.out.println("Is stack empty? " + stack.isEmpty());
+    }
+}
+
+#output:
+Stack after push: [10, 20, 30]
+Top element: 30
+Popped element: 30
+Stack after pop: [10, 20]
+Size of stack: 2
+Is stack empty? false
+
+3 ## Stack Implementation using LINKEDLIST
+
+class Node {
+    int data;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class Stack {
+    Node head;
+
+    public Stack() {
+        this.head = null;
+    }
+
+    boolean isEmpty() {
+        return this.head == null;
+    }
+
+    void push(int e) {
+        Node newNode = new Node(e);
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+
+    int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+
+        Node temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+
+        return temp.data;
+    }
+
+    int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is Empty");
+            return -1;
+        }
+
+        return this.head.data;
+    }
+
+    void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is Empty");
+            return;
+        }
+
+        Node current = this.head;
+
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Stack s = new Stack();
+        //s.push(10);
+        //s.push(20);
+        //s.push(30);
+
+        System.out.print("Stack: ");
+        s.display();
+
+        System.out.println("Top: " + s.peek());
+
+        System.out.println("Popped: " + s.pop());
+
+        System.out.print("After Pop: ");
+        s.display();
+    }
+}
+
+## output :
+Stack: 30 20 10 
+Top: 30
+Popped: 30
+After Pop: 20 10 
+
 
 
 
