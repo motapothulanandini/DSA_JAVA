@@ -112,4 +112,33 @@ public class Main {
 
 }
 
+Stacks Implement using ArrayList
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+	    List<Integer> stack = new ArrayList<Integer>();
+
+	    stack.add(10);//Addition
+
+	    stack.add(20);
+
+	    stack.add(30);
+
+	    System.out.println(stack.isEmpty());//Checking for atleast 1 value
+
+	    System.out.println(stack.size());// printing no.of values
+
+	    System.out.println(stack.remove(stack.size()-1));//deletion
+
+	    System.out.println(stack);
+
+	}
+
+}
+
+
 
