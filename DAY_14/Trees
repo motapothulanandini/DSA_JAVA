@@ -77,6 +77,10 @@ public class Main {
     }
 }
 
+##OUTPUT:
+Postorder Traversal:
+40 50 20 60 30 10
+
 
 #### INORDER TRAVERSAL
 
@@ -162,6 +166,11 @@ public class Main {
     }
 }
 
+##OUTPUT :
+Inorder Traversal:
+40 20 50 10 60 30 70
+
+
 ### PREORDER
 
 import java.util.*;
@@ -243,5 +252,139 @@ public class Main {
         System.out.println("Preorder Traversal:");
 
         t.preorder(t.root);
+    }
+}
+
+## OUTPUT :
+Preorder Traversal:
+10 20 40 50 30 60 70
+
+
+## INORDER USING STACK
+
+import java.util.*;
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        left = right = null;
+    }
+}
+
+class Tree {
+
+    Node root;
+
+    // Inorder using Stack
+    public void inorderStack() {
+
+        Stack<Node> stack = new Stack<>();
+
+        Node cur = root;
+
+        while (cur != null || !stack.isEmpty()) {
+
+            // Go left and push nodes
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+
+            // Get node from stack
+            cur = stack.pop();
+
+            System.out.print(cur.data + " ");
+
+            // Move to right subtree
+            cur = cur.right;
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Tree t = new Tree();
+
+        t.root = new Node(10);
+        t.root.left = new Node(20);
+        t.root.right = new Node(30);
+        t.root.left.left = new Node(40);
+        t.root.left.right = new Node(50);
+        t.root.right.left = new Node(60);
+        t.root.right.right = new Node(70);
+
+        System.out.println("Inorder using Stack:");
+
+        t.inorderStack();
+    }
+}
+
+## PREORDER USING STACK
+
+import java.util.*;
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        left = right = null;
+    }
+}
+
+class Tree {
+
+    Node root;
+
+    // Preorder using Stack
+    public void preorderStack() {
+
+        if (root == null)
+            return;
+
+        Stack<Node> stack = new Stack<>();
+
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+
+            Node cur = stack.pop();
+
+            System.out.print(cur.data + " ");
+
+            // Push right first
+            if (cur.right != null)
+                stack.push(cur.right);
+
+            // Push left next
+            if (cur.left != null)
+                stack.push(cur.left);
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Tree t = new Tree();
+
+        t.root = new Node(10);
+        t.root.left = new Node(20);
+        t.root.right = new Node(30);
+        t.root.left.left = new Node(40);
+        t.root.left.right = new Node(50);
+        t.root.right.left = new Node(60);
+        t.root.right.right = new Node(70);
+
+        System.out.println("Preorder using Stack:");
+
+        t.preorderStack();
     }
 }
