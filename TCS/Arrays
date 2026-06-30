@@ -1,7 +1,4 @@
 1.First non-Repeating element in array
-# Method 1:
-Brute Force :
-
 #Method 2:
 Optimized :
 import java.util.*;
@@ -77,6 +74,7 @@ class Solution
         
     }
 }
+
 3.Reverse of the Array 
 class Solution {
     public void reverseArray(int arr[])
@@ -95,6 +93,7 @@ class Solution {
 }
 
 4.Two Sum
+
 import java.util.Arrays;
 class Solution {
     public int[] twoSum(int[] nums, int target)
@@ -110,6 +109,32 @@ class Solution {
             map.put(nums[i],i);
         }
         return new int[]{};
+    }
+}
+
+5.Equilibrium Index   ===[leetcode n0 :724]
+class Solution {
+    public static int findEquilibrium(int arr[])
+    {
+        int sum=0;
+        for(int i=0;i<arr.length;i++)
+        {
+           sum+=arr[i];
+           
+           
+        }
+        int lefts=0;
+        for(int i=0;i<arr.length;i++)
+        {
+           sum-=arr[i];
+         if(lefts==sum)
+        {
+            return i;
+        }
+        
+        lefts+=arr[i];
+        }
+        return -1;
     }
 }
 
