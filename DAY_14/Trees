@@ -1,0 +1,247 @@
+## PostOrder
+
+import java.util.*;
+
+class Node1 {
+    int data;
+    Node1 left, right;
+
+    public Node1(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class Tree1 {
+    Node1 root;
+
+    public Tree1() {
+        root = null;
+    }
+
+    // Insert using Level Order
+    public void insert(int data) {
+        if (root == null) {
+            root = new Node1(data);
+            return;
+        }
+
+        Queue<Node1> q = new LinkedList<>();
+        q.offer(root);
+
+        while (!q.isEmpty()) {
+            Node1 cur = q.poll();
+
+            if (cur.left == null) {
+                cur.left = new Node1(data);
+                return;
+            } else {
+                q.offer(cur.left);
+            }
+
+            if (cur.right == null) {
+                cur.right = new Node1(data);
+                return;
+            } else {
+                q.offer(cur.right);
+            }
+        }
+    }
+
+    // Postorder Traversal (Left -> Right -> Root)
+    public void post_order_helper(Node1 node) {
+        if (node == null)
+            return;
+
+        post_order_helper(node.left);
+        post_order_helper(node.right);
+        System.out.print(node.data + " ");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Tree1 t = new Tree1();
+
+        t.insert(10);
+        t.insert(20);
+        t.insert(30);
+        t.insert(40);
+        t.insert(50);
+        t.insert(60);
+
+        System.out.println("Postorder Traversal:");
+        t.post_order_helper(t.root);
+    }
+}
+
+
+#### INORDER TRAVERSAL
+
+import java.util.*;
+
+class Node1 {
+    int data;
+    Node1 left, right;
+
+    public Node1(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class Tree1 {
+    Node1 root;
+
+    public Tree1() {
+        root = null;
+    }
+
+    // Insert using Level Order
+    public void insert(int data) {
+        if (root == null) {
+            root = new Node1(data);
+            return;
+        }
+
+        Queue<Node1> q = new LinkedList<>();
+
+        q.offer(root);
+
+        while (!q.isEmpty()) {
+            Node1 cur = q.poll();
+
+            if (cur.left == null) {
+                cur.left = new Node1(data);
+                return;
+            } else {
+                q.offer(cur.left);
+            }
+
+            if (cur.right == null) {
+                cur.right = new Node1(data);
+                return;
+            } else {
+                q.offer(cur.right);
+            }
+        }
+    }
+
+    // Inorder Traversal (Left -> Root -> Right)
+    public void inorder(Node1 node) {
+
+        if (node == null)
+            return;
+
+        inorder(node.left);
+        System.out.print(node.data + " ");
+        inorder(node.right);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Tree1 t = new Tree1();
+
+        t.insert(10);
+        t.insert(20);
+        t.insert(30);
+        t.insert(40);
+        t.insert(50);
+        t.insert(60);
+        t.insert(70);
+
+        System.out.println("Inorder Traversal:");
+
+        t.inorder(t.root);
+    }
+}
+
+### PREORDER
+
+import java.util.*;
+
+class Node1 {
+    int data;
+    Node1 left, right;
+
+    public Node1(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class Tree1 {
+    Node1 root;
+
+    public Tree1() {
+        root = null;
+    }
+
+    // Insert using Level Order
+    public void insert(int data) {
+        if (root == null) {
+            root = new Node1(data);
+            return;
+        }
+
+        Queue<Node1> q = new LinkedList<>();
+
+        q.offer(root);
+
+        while (!q.isEmpty()) {
+            Node1 cur = q.poll();
+
+            if (cur.left == null) {
+                cur.left = new Node1(data);
+                return;
+            } else {
+                q.offer(cur.left);
+            }
+
+            if (cur.right == null) {
+                cur.right = new Node1(data);
+                return;
+            } else {
+                q.offer(cur.right);
+            }
+        }
+    }
+
+    // Preorder Traversal (Root -> Left -> Right)
+    public void preorder(Node1 node) {
+
+        if (node == null)
+            return;
+
+        System.out.print(node.data + " ");
+        preorder(node.left);
+        preorder(node.right);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Tree1 t = new Tree1();
+
+        t.insert(10);
+        t.insert(20);
+        t.insert(30);
+        t.insert(40);
+        t.insert(50);
+        t.insert(60);
+        t.insert(70);
+
+        System.out.println("Preorder Traversal:");
+
+        t.preorder(t.root);
+    }
+}
