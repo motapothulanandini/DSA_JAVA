@@ -1,0 +1,50 @@
+## Graphs Implementation
+import java.util.HashMap;
+
+import java.util.ArrayList;
+
+class Graph{
+
+    HashMap<String,ArrayList<String>>adjList;
+
+    public Graph(){
+
+        adjList = new HashMap<>();
+
+    }
+
+    public void addEdge(String source,String destination){
+
+        if(!adjList.containsKey(source))
+
+        adjList.put(source,new ArrayList<>());
+
+        if(!adjList.containsKey(destination))
+
+        adjList.put(destination,new ArrayList<>());
+
+        adjList.get(source).add(destination);
+
+        adjList.get(destination).add(source);
+
+    }
+
+    public void display(){
+        for(String vertex : adjList.keySet()){
+            System.out.println(vertex+"->"+adjList.get(vertex));
+        }
+    }
+}
+
+public class Main
+{
+    public static void main(String args[])
+    {
+        Graph g=new Graph();
+        g.addEdge("p1","p2");
+        g.addEdge("p1","p3");
+        g.addEdge("p2","p3");
+        g.display();
+        
+    }
+}
