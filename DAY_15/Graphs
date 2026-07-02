@@ -111,12 +111,69 @@ public class Main
 {
 	public static void main(String[] args) {
 		Graph graph = new Graph();
-		graph.addEdge("Harish","Kumar",10);
+		graph.addEdge("Bapatla","Durga",10);
 		graph.display();
 	}
 }
 
+#####
+import java.util.*;
 
+class Edges {
+
+    String source, destination;
+
+    public Edges(String source, String destination) {
+
+        this.source = source;
+
+        this.destination = destination;
+
+    }
+
+}
+
+class Graph {
+
+    ArrayList<Edges> edgelist;
+
+    public Graph() {
+
+        edgelist = new ArrayList<>();
+
+    }
+
+    public void addEdge(String source, String destination) {
+
+        edgelist.add(new Edges(source, destination));
+
+    }
+
+    public void display() {
+
+        for (Edges edge : edgelist) {
+
+            System.out.println(edge.source + " -> " + edge.destination);
+
+        }
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String args[]) {
+
+        Graph graph = new Graph();
+
+        graph.addEdge("Bapatla", "Durga");
+
+        graph.display();
+
+    }
+
+}
 
 
 
