@@ -48,3 +48,53 @@ public class Main
         
     }
 }
+
+#####
+Matrix Implementation
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+class Graph{
+ArrayList<ArrayList<Integer>>adjMat;
+LinkedHashMap<String,Integer>VertexToIndex;
+public Graph(){
+    adjMat=new ArrayList<>();
+    VertexToIndex=new LinkedHashMap<>();
+}
+public void addVertex(String Vertex){
+    
+    if(!VertexToIndex.containsKey(Vertex)){
+        VertexToIndex.put(Vertex,adjMat.size());
+        for(ArrayList<Integer>row : adjMat){
+        row.add(0);
+    }
+    ArrayList<Integer> newRow=new ArrayList<>();
+    for(int ind=0;ind<=adjMat.size();ind++)
+    newRow.add(0);
+    adjMat.add(newRow);
+    }
+  }
+}
+public class Main{
+    public static void main(String args[])
+    {
+        Graph g=new Graph();
+        g.addVertex("Nandhu");
+        g.addVertex("Darga");
+        g.addVertex("Bapatla");
+        System.out.println(g.VertexToIndex);
+        for(ArrayList<Integer>row:g.adjMat)
+        {
+            System.out.println(row);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
