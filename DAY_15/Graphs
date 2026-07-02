@@ -395,3 +395,72 @@ public class Main{
 }
 
 
+####
+
+import java.util.*;
+class Graph {
+    LinkedHashMap<Integer, ArrayList<Integer>> AdjList;
+
+    public Graph() {
+        AdjList = new LinkedHashMap<>();
+    }
+
+    public void addEdge(int source, int destination) {
+        if (!AdjList.containsKey(source)) {
+            AdjList.put(source, new ArrayList<>());
+        }
+        if (!AdjList.containsKey(destination)) {
+            AdjList.put(destination, new ArrayList<>());
+        }
+        AdjList.get(source).add(destination);
+    }
+
+    public void display() {
+        for (int vertex : AdjList.keySet()) {
+            System.out.println(vertex + " -> " + AdjList.get(vertex));
+        }
+    }
+
+    public void topologicalOrdering() {
+        HashMap<Integer, Integer> in_degree = new HashMap<>();
+        for (int vertex : AdjList.keySet()) {
+            in_degree.put(vertex, 0);
+        }
+        for (int vertex : AdjList.keySet()) {
+            for (int neighbour : AdjList.get(vertex)) {
+                in_degree.put(neighbour, in_degree.get(neighbour) + 1);
+            }
+        }
+        Queue<Integer> queue = new LinkedList<>();
+        for (Integer vertex : in_degree.keySet()) {
+            if (in_degree.get(vertex) == 0) {
+                queue.offer(vertex);
+            }
+        }
+        while (!queue.isEmpty()) {
+            int current = queue.poll();
+            System.out.print(current + " ");
+            if (AdjList.containsKey(current)) {
+                for (int neighbour : AdjList.get(current)) {
+                    in_degree.put(neighbour, in_degree.get(neighbour) - 1);
+                    if (in_degree.get(neighbour) == 0) {
+                        queue.offer(neighbour);
+                    }
+                }
+            }
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Graph graph = new Graph();
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 4);
+        graph.addEdge(2, 3);
+        graph.addEdge(4, 2);
+        graph.addEdge(4, 3);
+        graph.addEdge(3, 6);
+        graph.addEdge(5, 2);
+        graph.topologicalOrdering();
+    }
+}
