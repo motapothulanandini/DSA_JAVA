@@ -464,3 +464,25 @@ public class Main {
         graph.topologicalOrdering();
     }
 }
+  leetcode 200
+class Solution {
+    public int numIslands(char[][] grid)
+    {
+        int rows=grid.length;
+        int cols=grid[0].length;
+        for(int row=0;row<rowsrow++)
+        {
+            for(int col=0;col<cols;col++){
+                if(grid[row][col]=='1'){
+                    explore_connected(row,col,rows,cols,grid);
+                    count++;
+                }
+            }
+        }
+    }
+    private void explore_connected(int row,int col,int rows,int cols,char[][] grid){
+        if(row<0||row>=rows||col<0||col>=cols||grid[row][col]=='0') return;
+        grid[row][col]='0';
+        explore_connected(row-1,)
+    }
+}
